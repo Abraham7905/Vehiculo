@@ -18,6 +18,18 @@ public class Vehiculo {
      * añoFabricado: Año en la que el vehiculo fue fabricado
      */
     private String añoFabricado;
-
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Método Constructor
+    /**
+     * 
+     * @param marca
+     * @param añoFabricado 
+     */
+    public Vehiculo (String marca, String añoFabricado){
+    this.marca = marca;
+    this.añoFabricado = añoFabricado;
+    }
+    
     
 }
