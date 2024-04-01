@@ -8,5 +8,16 @@ package Autonoma.Vehiculo.Models;
  * @author Abraham Velasquez 
  */
 public class Vehiculo {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Atributos
+    /**
+     * marca: Nombre de la marca del vehiculo
+     */
+    private String marca;
+    /**
+     * añoFabricado: Año en la que el vehiculo fue fabricado
+     */
+    private String añoFabricado;
+
     
 }
