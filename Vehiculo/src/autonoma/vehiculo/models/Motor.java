@@ -65,10 +65,17 @@ public class Motor {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Métodos Modificadores
+    /**
+     * Modifica el estado del vehiculo 
+     * @param encendido 
+     */
      public void encender(boolean encendido){
         this.estado = true;
     }
-    
+    /**
+     * Modifica el estado del vehiculo 
+     * @param apagado 
+     */
     public void apagar(boolean apagado){
         this.estado = false;
     }
