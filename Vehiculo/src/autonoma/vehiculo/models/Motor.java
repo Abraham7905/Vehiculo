@@ -8,5 +8,18 @@ package autonoma.vehiculo.models;
  * @author Abraham Velasquez
  */
 public class Motor {
-    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Atributos
+    /**
+     * cilindraje: Nombre del cilindraje
+     */
+    private String cilindraje;
+    /**
+     * velocidadMax: Velocidad máxima para cada cilindraje
+     */
+    private int velocidadMax;
+    /**
+     * estado: Estado en la que se encuentra el vehiculo
+     */
+    private boolean estado;
 }
