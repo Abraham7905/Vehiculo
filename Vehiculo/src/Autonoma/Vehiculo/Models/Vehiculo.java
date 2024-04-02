@@ -18,7 +18,9 @@ public class Vehiculo {
      * añoFabricado: Año en la que el vehiculo fue fabricado
      */
     private String añoFabricado;
-    
+    /**
+     * velocidadActual: Velocidad actual del vehiculo
+     */
     private int velocidadActual;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
