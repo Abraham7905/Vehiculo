@@ -8,6 +8,9 @@ package autonoma.vehiculo.exceptions;
  *
  * @author aduin
  */
-public class EstadoEncendido {
+public class EstadoEncendido extends RuntimeException {
     
+    public EstadoEncendido (){
+        super ("El vehiculo ya está encendido, no puedes encerderlo de nuevo");
+    }
 }

@@ -1,6 +1,8 @@
 
 package autonoma.vehiculo.models;
 
+import autonoma.vehiculo.exceptions.EstadoEncendido;
+
 /**
  *Esta es la clase Motor
  * @since 20240331
@@ -78,6 +80,13 @@ public class Motor {
      */
     public void apagar(boolean apagado){
         this.estado = false;
+    }
+    
+    //Validar estado del vehiculo
+    public void ValidarEstado(boolean estado) throws EstadoEncendido{
+       if (estado == true){
+           System.out.println("El vehiculo ya está encendido");
+       }
     }
     
     
