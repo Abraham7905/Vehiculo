@@ -79,5 +79,10 @@ public class Vehiculo {
         this.setVelocidadActual (0);
     }
     
+    public void frenarBruscamente(int velocidad){
+        if (velocidadActual > 30){
+            this.setVelocidadActual(0);
+        }
+    }
     
 }
