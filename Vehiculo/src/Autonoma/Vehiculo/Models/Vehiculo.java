@@ -69,6 +69,15 @@ public class Vehiculo {
         this.velocidadActual = velocidadActual;
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Métodos Modificadores
+    public void acelerar(int velocidad){
+        this.setVelocidadActual (this.getVelocidadActual() + velocidad);
+    }
+    
+     public void frenar (int velocidad){
+        this.setVelocidadActual (0);
+    }
     
     
 }
