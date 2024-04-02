@@ -1,5 +1,5 @@
 
-package Autonoma.Vehiculo.Models;
+package autonoma.vehiculo.models;
 
 /**
  *Esta es la clase Motor
