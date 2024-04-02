@@ -71,14 +71,24 @@ public class Vehiculo {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Métodos Modificadores
+    /**
+     * Recibe como parámetro la velocidad y se suma a la velocidad actual
+     * @param velocidad 
+     */
     public void acelerar(int velocidad){
         this.setVelocidadActual (this.getVelocidadActual() + velocidad);
     }
-    
+    /**
+     * Recibe como parámetro la velocidad y reduce la velocidad actual a cero
+     * @param velocidad 
+     */
      public void frenar (int velocidad){
         this.setVelocidadActual (0);
     }
-    
+    /**
+     * Recibe como parámetro la velocidad y si la velocidad actual es mayor a 30km/h se considera un frenado brusco
+     * @param velocidad 
+     */
     public void frenarBruscamente(int velocidad){
         if (velocidadActual > 30){
             this.setVelocidadActual(0);
