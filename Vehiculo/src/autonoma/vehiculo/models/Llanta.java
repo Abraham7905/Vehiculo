@@ -1,5 +1,5 @@
 
-package autonoma.vehiculo.models;
+package Autonoma.Vehiculo.Models;
 
 /**
  *Esta es la clase Llanta
@@ -18,4 +18,27 @@ public class Llanta {
      * limite: Es la velocidad maxima permitida para cada tipo de llanta
      */
     private int limite;
+
+    public Llanta(String nombreTipo, int limite) {
+        this.nombreTipo = nombreTipo;
+        this.limite = limite;
+    }
+
+    public String getNombreTipo() {
+        return nombreTipo;
+    }
+
+    public void setNombreTipo(String nombreTipo) {
+        this.nombreTipo = nombreTipo;
+    }
+
+    public int getLimite() {
+        return limite;
+    }
+
+    public void setLimite(int limite) {
+        this.limite = limite;
+    }
+    
 }
+

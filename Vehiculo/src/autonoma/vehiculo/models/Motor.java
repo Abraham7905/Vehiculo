@@ -1,13 +1,15 @@
 
-package autonoma.vehiculo.models;
+package Autonoma.Vehiculo.Models;
 
-import autonoma.vehiculo.exceptions.EstadoEncendido;
+import Autonoma.Vehiculo.Exceptions.ApagadoNuevamenteException;
+import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
 
 /**
  *Esta es la clase Motor
  * @since 20240331
  * @version 0.0.1
- * @author Abraham Velasquez
+ * @author Abraham Velasquez 
+ * @author Aglae Duin
  */
 public class Motor {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,7 +38,7 @@ public class Motor {
     public Motor(String cilindraje, int velocidadMax, boolean estado) {
         this.cilindraje = cilindraje;
         this.velocidadMax = velocidadMax;
-        this.estado = estado;
+        this.estado = false;
     }
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,25 +71,29 @@ public class Motor {
     //Métodos Modificadores
     /**
      * Modifica el estado del vehiculo 
-     * @param encendido 
+     *
+     * @throws autonoma.vehiculo.exceptions.EncendidoNuevamenteException
      */
-     public void encender(boolean encendido){
+     public void encender() throws EncendidoNuevamenteException{
+         if(estado){
+            throw new EncendidoNuevamenteException("No puedes encender de nuevo un vehículo encendido");
+         }
         this.estado = true;
     }
     /**
      * Modifica el estado del vehiculo 
-     * @param apagado 
+     * 
      */
-    public void apagar(boolean apagado){
+    public void apagar(){
+        if(!estado){
+            throw new ApagadoNuevamenteException("No puedes apagar de nuevo un vehiculo apagado");
+        }
         this.estado = false;
     }
+        
     
-    //Validar estado del vehiculo
-    public void ValidarEstado(boolean estado) throws EstadoEncendido{
-       if (estado == true){
-           System.out.println("El vehiculo ya está encendido");
-       }
-    }
+    
+   
     
     
 }

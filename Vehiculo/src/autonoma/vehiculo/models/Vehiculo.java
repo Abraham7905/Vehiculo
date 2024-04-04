@@ -1,5 +1,11 @@
 
-package autonoma.vehiculo.models;
+package Autonoma.Vehiculo.Models;
+import Autonoma.Vehiculo.Exceptions.AcelerarFrenarApagadoException;
+import Autonoma.Vehiculo.Exceptions.FrenadoBruscoException;
+import Autonoma.Vehiculo.Exceptions.FrenarSinMovimientoException;
+import Autonoma.Vehiculo.Exceptions.FrenarVelocidadLimiteException;
+import Autonoma.Vehiculo.Exceptions.MotorLimiteException;
+import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
 
 /**
  * Esta es la clase Vehiculo
@@ -14,14 +20,26 @@ public class Vehiculo {
      * marca: Nombre de la marca del vehiculo
      */
     private String marca;
+    
     /**
      * añoFabricado: Año en la que el vehiculo fue fabricado
      */
     private String añoFabricado;
+    
     /**
      * velocidadActual: Velocidad actual del vehiculo
      */
     private int velocidadActual;
+    
+    /**
+     *Motor del vehiculo incorporado
+     */
+    private Motor motor;
+    
+    /**
+     * Llantas del vehiculo incorporado
+     */
+    private Llanta llanta;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Método Constructor
@@ -76,23 +94,57 @@ public class Vehiculo {
      * @param velocidad 
      */
     public void acelerar(int velocidad){
-        this.setVelocidadActual (this.getVelocidadActual() + velocidad);
+              if(!motor.isEstado()){
+             throw new AcelerarFrenarApagadoException ("No puedes acelerar un vehiculo apagado");
+        }
+              if(velocidadActual > motor.getVelocidadMax()){
+                  throw new MotorLimiteException("No puedes acelerar por encima del limite, El vehiculo esta patinando ");
+              }
+             this.setVelocidadActual (this.getVelocidadActual() + velocidad);
+       
     }
+    
     /**
      * Recibe como parámetro la velocidad y reduce la velocidad actual a cero
      * @param velocidad 
      */
      public void frenar (int velocidad){
-        this.setVelocidadActual (0);
+         if(velocidadActual == 0){
+           throw new FrenarSinMovimientoException("No puedes frenar sin Movimiento");
+         }
+          if(!motor.isEstado()){
+          throw new AcelerarFrenarApagadoException ("No puedes frenar un vehiculo apagado");
+        }
+          
+       if(velocidadActual == motor.getVelocidadMax()){
+           throw new FrenarVelocidadLimiteException("No puedes frenar a la velocidad limite, El Vehiculo esta patinando");
+       }
+       
+       
+        this.setVelocidadActual (velocidad);
     }
+     
     /**
      * Recibe como parámetro la velocidad y si la velocidad actual es mayor a 30km/h se considera un frenado brusco
      * @param velocidad 
      */
     public void frenarBruscamente(int velocidad){
+        
+        if (velocidadActual >llanta.getLimite() ){
+                throw new FrenadoBruscoException ("El Vehiculo esta patinando");
+            }
+        
         if (velocidadActual > 30){
-            this.setVelocidadActual(0);
+            this.setVelocidadActual(velocidad);
         }
+    }
+    
+    public void apagar(){
+        motor.apagar();
+    }
+    
+    public void encender() throws EncendidoNuevamenteException{
+        motor.encender();
     }
     
 }
