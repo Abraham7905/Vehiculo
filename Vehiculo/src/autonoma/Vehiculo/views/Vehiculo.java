@@ -4,12 +4,13 @@
  */
 package autonoma.Vehiculo.views;
 
+
 /**
  *
  * @author abrah
  */
 public class Vehiculo extends javax.swing.JDialog {
-
+    private Vehiculo vehiculo;
     /**
      * Creates new form Vehiculo
      */
@@ -17,6 +18,7 @@ public class Vehiculo extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -50,6 +52,11 @@ public class Vehiculo extends javax.swing.JDialog {
 
         btnAcelerador.setBackground(new java.awt.Color(0, 153, 153));
         btnAcelerador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/acelerador.png"))); // NOI18N
+        btnAcelerador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceleradorActionPerformed(evt);
+            }
+        });
 
         btnApagar.setBackground(new java.awt.Color(0, 153, 153));
         btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/off.png"))); // NOI18N
@@ -99,7 +106,7 @@ public class Vehiculo extends javax.swing.JDialog {
                                 .addComponent(btnFreno, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(61, 61, 61)
                                 .addComponent(btnAcelerador, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel3)
@@ -132,22 +139,18 @@ public class Vehiculo extends javax.swing.JDialog {
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3))
-                .addGap(0, 149, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,15 +163,19 @@ public class Vehiculo extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEncenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncenderActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnEncenderActionPerformed
+
+    private void btnAceleradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceleradorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceleradorActionPerformed
 
     /**
      * @param args the command line arguments

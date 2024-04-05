@@ -48,18 +48,6 @@ public class Vehiculo {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Método Constructor
-    /**
-     * 
-     * @param marca
-     * @param añoFabricado
-     * @param velocidadActual 
-     */
-    public Vehiculo (String marca, String añoFabricado, int velocidadActual){
-    this.marca = marca;
-    this.añoFabricado = añoFabricado;
-    this.velocidadActual = velocidadActual;
-    }
-    
     public Vehiculo(){
         this.marca = "";
         this.añoFabricado = "";

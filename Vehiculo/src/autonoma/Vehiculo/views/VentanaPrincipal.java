@@ -8,7 +8,7 @@ package autonoma.Vehiculo.views;
  * @author abrah
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    private Vehiculo vehiculo;
     /**
      * Creates new form VentanaPrincipal
      */
@@ -67,6 +67,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnCoche.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCocheMouseClicked(evt);
+            }
+        });
+        btnCoche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCocheActionPerformed(evt);
             }
         });
 
@@ -148,7 +153,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGoTallerActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        // TODO add your handling code here:
+        Vehiculo v = new Vehiculo(this, true);
+        v.setVisible(true);
+        
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnCocheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCocheMouseClicked
@@ -166,6 +173,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTallerMouseClicked
         System.out.println("Configurar Vehiculo");
     }//GEN-LAST:event_btnTallerMouseClicked
+
+    private void btnCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCocheActionPerformed
+       Vehiculo v = new Vehiculo(this, true);
+       v.setVisible(true);
+       
+    }//GEN-LAST:event_btnCocheActionPerformed
 
     /**
      * @param args the command line arguments
