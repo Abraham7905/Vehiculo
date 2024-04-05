@@ -1,15 +1,15 @@
 
-package Autonoma.Vehiculo.Models;
+package autonoma.Vehiculo.models;
 
-import Autonoma.Vehiculo.Exceptions.ApagadoNuevamenteException;
-import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
+import autonoma.Vehiculo.exceptions.ApagadoNuevamenteException;
+import autonoma.Vehiculo.exceptions.EncendidoNuevamenteException;
 
 /**
  *Esta es la clase Motor
  * @since 20240331
  * @version 0.0.1
  * @author Abraham Velasquez 
- * @author Aglae Duin
+ * @author aduin
  */
 public class Motor {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +72,7 @@ public class Motor {
     /**
      * Modifica el estado del vehiculo 
      *
-     * @throws autonoma.vehiculo.exceptions.EncendidoNuevamenteException
+     * @throws autonoma.Vehiculo.exceptions.EncendidoNuevamenteException
      */
      public void encender() throws EncendidoNuevamenteException{
          if(estado){

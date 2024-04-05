@@ -31,6 +31,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnStart = new javax.swing.JButton();
         btnCoche = new javax.swing.JButton();
         btnTaller = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnCoche.setBackground(new java.awt.Color(0, 153, 153));
         btnCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/coche.png"))); // NOI18N
+        btnCoche.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCocheMouseClicked(evt);
+            }
+        });
 
         btnTaller.setBackground(new java.awt.Color(0, 153, 153));
         btnTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/llave-inglesa.png"))); // NOI18N
@@ -60,6 +66,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnTallerActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 36)); // NOI18N
+        jLabel1.setText("Simulador de Vehículo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,18 +79,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnGoTaller)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnStart)
-                .addGap(98, 98, 98))
+                .addGap(97, 97, 97))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(btnTaller)
-                .addGap(135, 135, 135)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCoche)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(77, 77, 77))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(88, 88, 88))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1)
+                .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnTaller)
                     .addComponent(btnCoche))
@@ -89,14 +104,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGoTaller)
                     .addComponent(btnStart))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,6 +134,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnStartActionPerformed
+
+    private void btnCocheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCocheMouseClicked
+        // TODO add your handling code here:
+        ñlkj
+    }//GEN-LAST:event_btnCocheMouseClicked
 
     /**
      * @param args the command line arguments
@@ -158,6 +180,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnGoTaller;
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnTaller;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

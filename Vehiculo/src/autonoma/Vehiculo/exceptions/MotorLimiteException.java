@@ -1,4 +1,4 @@
-package Autonoma.Vehiculo.Exceptions;
+package autonoma.Vehiculo.exceptions;
 /**
  * @since 20240404
  * @version 1.0.0

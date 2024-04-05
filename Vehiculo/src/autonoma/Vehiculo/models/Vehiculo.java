@@ -1,42 +1,47 @@
 
-package Autonoma.Vehiculo.Models;
-import Autonoma.Vehiculo.Exceptions.AcelerarFrenarApagadoException;
-import Autonoma.Vehiculo.Exceptions.FrenadoBruscoException;
-import Autonoma.Vehiculo.Exceptions.FrenarSinMovimientoException;
-import Autonoma.Vehiculo.Exceptions.FrenarVelocidadLimiteException;
-import Autonoma.Vehiculo.Exceptions.MotorLimiteException;
-import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
+package autonoma.Vehiculo.models;
+import autonoma.Vehiculo.exceptions.AcelerarFrenarApagadoException;
+import autonoma.Vehiculo.exceptions.FrenadoBruscoException;
+import autonoma.Vehiculo.exceptions.FrenarSinMovimientoException;
+import autonoma.Vehiculo.exceptions.FrenarVelocidadLimiteException;
+import autonoma.Vehiculo.exceptions.MotorLimiteException;
+import autonoma.Vehiculo.exceptions.EncendidoNuevamenteException;
 
 /**
  * Esta es la clase Vehiculo
  *@since 20240331
  * @version 0.0.1
  * @author Abraham Velasquez 
+ * @author aduin
  */
 public class Vehiculo {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Atributos
     /**
+     * 
      * marca: Nombre de la marca del vehiculo
      */
     private String marca;
     
     /**
+     * 
      * añoFabricado: Año en la que el vehiculo fue fabricado
      */
     private String añoFabricado;
     
     /**
+     * 
      * velocidadActual: Velocidad actual del vehiculo
      */
     private int velocidadActual;
     
     /**
+     * 
      *Motor del vehiculo incorporado
      */
     private Motor motor;
     
-    /**
+    /*
      * Llantas del vehiculo incorporado
      */
     private Llanta llanta;
@@ -90,6 +95,7 @@ public class Vehiculo {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Métodos Modificadores
     /**
+     * 
      * Recibe como parámetro la velocidad y se suma a la velocidad actual
      * @param velocidad 
      */
@@ -118,9 +124,7 @@ public class Vehiculo {
           
        if(velocidadActual == motor.getVelocidadMax()){
            throw new FrenarVelocidadLimiteException("No puedes frenar a la velocidad limite, El Vehiculo esta patinando");
-       }
-       
-       
+       }    
         this.setVelocidadActual (velocidad);
     }
      
