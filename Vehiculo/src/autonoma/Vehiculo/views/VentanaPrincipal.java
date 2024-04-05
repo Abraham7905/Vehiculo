@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package autonoma.Vehiculo.views;
-
 /**
  *
  * @author abrah
@@ -15,6 +14,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -38,6 +39,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         btnGoTaller.setText("Ir al taller");
+        btnGoTaller.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGoTallerMouseClicked(evt);
+            }
+        });
         btnGoTaller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGoTallerActionPerformed(evt);
@@ -45,6 +51,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnStart.setText("Empezar");
+        btnStart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStartMouseClicked(evt);
+            }
+        });
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
@@ -61,6 +72,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnTaller.setBackground(new java.awt.Color(0, 153, 153));
         btnTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/llave-inglesa.png"))); // NOI18N
+        btnTaller.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTallerMouseClicked(evt);
+            }
+        });
         btnTaller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTallerActionPerformed(evt);
@@ -136,9 +152,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnCocheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCocheMouseClicked
-        // TODO add your handling code here:
-        ñlkj
+        System.out.println("Conducir");
     }//GEN-LAST:event_btnCocheMouseClicked
+
+    private void btnGoTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGoTallerMouseClicked
+        System.out.println("Configurar Vehiculo");
+    }//GEN-LAST:event_btnGoTallerMouseClicked
+
+    private void btnStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStartMouseClicked
+        System.out.println("Conducir");
+    }//GEN-LAST:event_btnStartMouseClicked
+
+    private void btnTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTallerMouseClicked
+        System.out.println("Configurar Vehiculo");
+    }//GEN-LAST:event_btnTallerMouseClicked
 
     /**
      * @param args the command line arguments

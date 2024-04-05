@@ -16,6 +16,7 @@ public class Vehiculo extends javax.swing.JDialog {
     public Vehiculo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
