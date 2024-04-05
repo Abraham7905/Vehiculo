@@ -66,17 +66,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
+                .addGap(98, 98, 98)
                 .addComponent(btnGoTaller)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnStart)
-                .addGap(138, 138, 138))
+                .addGap(98, 98, 98))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addGap(77, 77, 77)
                 .addComponent(btnTaller)
-                .addGap(94, 94, 94)
+                .addGap(135, 135, 135)
                 .addComponent(btnCoche)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +89,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGoTaller)
                     .addComponent(btnStart))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
