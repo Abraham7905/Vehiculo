@@ -6,6 +6,7 @@ import Autonoma.Vehiculo.Exceptions.FrenarSinMovimientoException;
 import Autonoma.Vehiculo.Exceptions.FrenarVelocidadLimiteException;
 import Autonoma.Vehiculo.Exceptions.MotorLimiteException;
 import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
+import javax.swing.JOptionPane;
 
 /**
  * Esta es la clase Vehiculo
@@ -54,11 +55,10 @@ public class Vehiculo {
     this.añoFabricado = añoFabricado;
     this.velocidadActual = velocidadActual;
     }
-    
+    /**
+     *Constructor Vacio
+     */
     public Vehiculo(){
-        this.marca = "";
-        this.añoFabricado = "";
-        this.velocidadActual = 0;
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,13 +94,23 @@ public class Vehiculo {
      * @param velocidad 
      */
     public void acelerar(int velocidad){
-              if(!motor.isEstado()){
-             throw new AcelerarFrenarApagadoException ("No puedes acelerar un vehiculo apagado");
+        try {
+            if(motor.isEstado()){
+            } 
+        } catch (AcelerarFrenarApagadoException e) {
+             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-              if(velocidadActual > motor.getVelocidadMax()){
-                  throw new MotorLimiteException("No puedes acelerar por encima del limite, El vehiculo esta patinando ");
-              }
-             this.setVelocidadActual (this.getVelocidadActual() + velocidad);
+   
+        try {
+            if(velocidadActual <= motor.getVelocidadMax()){
+              
+            }
+        } catch (MotorLimiteException e ) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+       
+            
+            this.setVelocidadActual (this.getVelocidadActual() + velocidad);
        
     }
     
@@ -109,16 +119,37 @@ public class Vehiculo {
      * @param velocidad 
      */
      public void frenar (int velocidad){
-         if(velocidadActual == 0){
-           throw new FrenarSinMovimientoException("No puedes frenar sin Movimiento");
+         /**
+          * Exception De Frenar Sin Movimiento
+          */
+         try {
+             if(velocidadActual != 0){
          }
-          if(!motor.isEstado()){
-          throw new AcelerarFrenarApagadoException ("No puedes frenar un vehiculo apagado");
+         } catch (FrenarSinMovimientoException e) {
+              JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+         
+         /**
+          * Exception De Acelerar/Frenar Apagado
+          */
+        try {
+            if(motor.isEstado()){
+            } 
+        } catch (AcelerarFrenarApagadoException e) {
+          JOptionPane.showMessageDialog(null, e.getMessage());
         }
-          
-       if(velocidadActual == motor.getVelocidadMax()){
-           throw new FrenarVelocidadLimiteException("No puedes frenar a la velocidad limite, El Vehiculo esta patinando");
-       }
+        /**
+         * Exception FrenarVelocidadException
+         */
+         try {
+          if(velocidadActual != motor.getVelocidadMax()){
+
+          }
+         } catch (FrenarVelocidadLimiteException e) {
+              JOptionPane.showMessageDialog(null, e.getMessage());
+              motor.apagar();
+         }
+       
        
        
         this.setVelocidadActual (velocidad);
@@ -129,21 +160,27 @@ public class Vehiculo {
      * @param velocidad 
      */
     public void frenarBruscamente(int velocidad){
-        
-        if (velocidadActual >llanta.getLimite() ){
-                throw new FrenadoBruscoException ("El Vehiculo esta patinando");
+        /**
+         * Exception de Frenado Brusco
+         */
+        try {
+            if (velocidadActual <=llanta.getLimite() ){
             }
-        
-        if (velocidadActual > 30){
+             if (velocidadActual > 30){
             this.setVelocidadActual(velocidad);
         }
+        } catch (FrenadoBruscoException e) {
+             JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
+       
     }
     
     public void apagar(){
         motor.apagar();
     }
     
-    public void encender() throws EncendidoNuevamenteException{
+    public void encender() {
         motor.encender();
     }
     

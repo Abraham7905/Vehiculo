@@ -3,6 +3,7 @@ package Autonoma.Vehiculo.Models;
 
 import Autonoma.Vehiculo.Exceptions.ApagadoNuevamenteException;
 import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
+import javax.swing.JOptionPane;
 
 /**
  *Esta es la clase Motor
@@ -72,23 +73,33 @@ public class Motor {
     /**
      * Modifica el estado del vehiculo 
      *
-     * @throws autonoma.vehiculo.exceptions.EncendidoNuevamenteException
+    
      */
-     public void encender() throws EncendidoNuevamenteException{
-         if(estado){
-            throw new EncendidoNuevamenteException("No puedes encender de nuevo un vehículo encendido");
+     public void encender() {
+         try{
+             if(estado != true){
+             this.estado = true;
+                }
+         } catch (EncendidoNuevamenteException e) {
+             JOptionPane.showMessageDialog(null, e.getMessage());
          }
-        this.estado = true;
+         
+        
     }
     /**
      * Modifica el estado del vehiculo 
      * 
      */
     public void apagar(){
-        if(!estado){
-            throw new ApagadoNuevamenteException("No puedes apagar de nuevo un vehiculo apagado");
+        try {
+            if(estado == true){
+         this.estado = false;
         }
-        this.estado = false;
+        } catch (ApagadoNuevamenteException e) {
+             JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
+     
     }
         
     
