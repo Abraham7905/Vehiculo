@@ -1,16 +1,16 @@
 
-package Autonoma.Vehiculo.Models;
-
-import Autonoma.Vehiculo.Exceptions.ApagadoNuevamenteException;
-import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
+package autonoma.Vehiculo.models;
 import javax.swing.JOptionPane;
+import autonoma.Vehiculo.exceptions.ApagadoNuevamenteException;
+import autonoma.Vehiculo.exceptions.EncendidoNuevamenteException;
+
 
 /**
  *Esta es la clase Motor
  * @since 20240331
  * @version 0.0.1
  * @author Abraham Velasquez 
- * @author Aglae Duin
+ * @author aduin
  */
 public class Motor {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,7 +73,11 @@ public class Motor {
     /**
      * Modifica el estado del vehiculo 
      *
+<<<<<<< HEAD:Vehiculo/src/autonoma/vehiculo/models/Motor.java
     
+=======
+     * @throws autonoma.Vehiculo.exceptions.EncendidoNuevamenteException
+>>>>>>> refs/remotes/origin/main:Vehiculo/src/autonoma/Vehiculo/models/Motor.java
      */
      public void encender() {
          try{

@@ -1,11 +1,10 @@
 
-package Autonoma.Vehiculo.Models;
-import Autonoma.Vehiculo.Exceptions.AcelerarFrenarApagadoException;
-import Autonoma.Vehiculo.Exceptions.FrenadoBruscoException;
-import Autonoma.Vehiculo.Exceptions.FrenarSinMovimientoException;
-import Autonoma.Vehiculo.Exceptions.FrenarVelocidadLimiteException;
-import Autonoma.Vehiculo.Exceptions.MotorLimiteException;
-import autonoma.vehiculo.exceptions.EncendidoNuevamenteException;
+package autonoma.Vehiculo.models;
+import autonoma.Vehiculo.exceptions.AcelerarFrenarApagadoException;
+import autonoma.Vehiculo.exceptions.FrenadoBruscoException;
+import autonoma.Vehiculo.exceptions.FrenarSinMovimientoException;
+import autonoma.Vehiculo.exceptions.FrenarVelocidadLimiteException;
+import autonoma.Vehiculo.exceptions.MotorLimiteException;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,31 +12,36 @@ import javax.swing.JOptionPane;
  *@since 20240331
  * @version 0.0.1
  * @author Abraham Velasquez 
+ * @author aduin
  */
 public class Vehiculo {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Atributos
     /**
+     * 
      * marca: Nombre de la marca del vehiculo
      */
     private String marca;
     
     /**
+     * 
      * añoFabricado: Año en la que el vehiculo fue fabricado
      */
     private String añoFabricado;
     
     /**
+     * 
      * velocidadActual: Velocidad actual del vehiculo
      */
     private int velocidadActual;
     
     /**
+     * 
      *Motor del vehiculo incorporado
      */
     private Motor motor;
     
-    /**
+    /*
      * Llantas del vehiculo incorporado
      */
     private Llanta llanta;
@@ -58,6 +62,7 @@ public class Vehiculo {
     /**
      *Constructor Vacio
      */
+
     public Vehiculo(){
     }
     
@@ -90,69 +95,69 @@ public class Vehiculo {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Métodos Modificadores
     /**
+     * 
      * Recibe como parámetro la velocidad y se suma a la velocidad actual
      * @param velocidad 
      */
     public void acelerar(int velocidad){
-        try {
-            if(motor.isEstado()){
-            } 
-        } catch (AcelerarFrenarApagadoException e) {
-             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-   
-        try {
-            if(velocidadActual <= motor.getVelocidadMax()){
-              
+                try {
+                    if(motor.isEstado()){
+                    } 
+                } catch (AcelerarFrenarApagadoException e) {
+                     JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+
+                try {
+                    if(velocidadActual <= motor.getVelocidadMax()){
+
+                    }
+                } catch (MotorLimiteException e ) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+
+
+                    this.setVelocidadActual (this.getVelocidadActual() + velocidad);
+
             }
-        } catch (MotorLimiteException e ) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-       
-            
-            this.setVelocidadActual (this.getVelocidadActual() + velocidad);
-       
-    }
     
     /**
      * Recibe como parámetro la velocidad y reduce la velocidad actual a cero
      * @param velocidad 
      */
      public void frenar (int velocidad){
-         /**
-          * Exception De Frenar Sin Movimiento
-          */
-         try {
-             if(velocidadActual != 0){
-         }
-         } catch (FrenarSinMovimientoException e) {
-              JOptionPane.showMessageDialog(null, e.getMessage());
-         }
-         
-         /**
-          * Exception De Acelerar/Frenar Apagado
-          */
-        try {
-            if(motor.isEstado()){
-            } 
-        } catch (AcelerarFrenarApagadoException e) {
-          JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        /**
-         * Exception FrenarVelocidadException
-         */
-         try {
-          if(velocidadActual != motor.getVelocidadMax()){
+                /**
+                 * Exception De Frenar Sin Movimiento
+                 */
+                try {
+                    if(velocidadActual != 0){
+                }
+                } catch (FrenarSinMovimientoException e) {
+                     JOptionPane.showMessageDialog(null, e.getMessage());
+                }
 
-          }
-         } catch (FrenarVelocidadLimiteException e) {
-              JOptionPane.showMessageDialog(null, e.getMessage());
-              motor.apagar();
-         }
-       
-       
-       
-        this.setVelocidadActual (velocidad);
+                /**
+                 * Exception De Acelerar/Frenar Apagado
+                 */
+               try {
+                   if(motor.isEstado()){
+                   } 
+               } catch (AcelerarFrenarApagadoException e) {
+                 JOptionPane.showMessageDialog(null, e.getMessage());
+               }
+
+            /**
+             * Exception FrenarVelocidadException
+             */
+                    try {
+                 if(velocidadActual != motor.getVelocidadMax()){
+
+                 }
+                } catch (FrenarVelocidadLimiteException e) {
+                     JOptionPane.showMessageDialog(null, e.getMessage());
+                     motor.apagar();
+                }
+
+               this.setVelocidadActual (velocidad);
     }
      
     /**
@@ -160,19 +165,19 @@ public class Vehiculo {
      * @param velocidad 
      */
     public void frenarBruscamente(int velocidad){
-        /**
-         * Exception de Frenado Brusco
-         */
-        try {
-            if (velocidadActual <=llanta.getLimite() ){
-            }
-             if (velocidadActual > 30){
-            this.setVelocidadActual(velocidad);
-        }
-        } catch (FrenadoBruscoException e) {
-             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
+                /**
+                 * Exception de Frenado Brusco
+                 */
+                try {
+                    if (velocidadActual <=llanta.getLimite() ){
+                    }
+                     if (velocidadActual > 30){
+                    this.setVelocidadActual(velocidad);
+                }
+                } catch (FrenadoBruscoException e) {
+                     JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+
        
     }
     
