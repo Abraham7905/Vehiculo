@@ -39,7 +39,7 @@ public class Motor {
     public Motor(String cilindraje, int velocidadMax, boolean estado) {
         this.cilindraje = cilindraje;
         this.velocidadMax = velocidadMax;
-        this.estado = false;
+        this.estado = estado;
     }
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +83,7 @@ public class Motor {
          try{
              if(estado != true){
              this.estado = true;
+             JOptionPane.showMessageDialog(null, "Se ha encendido el vehiculo");
                 }
          } catch (EncendidoNuevamenteException e) {
              JOptionPane.showMessageDialog(null, e.getMessage());
@@ -98,6 +99,7 @@ public class Motor {
         try {
             if(estado == true){
          this.estado = false;
+         JOptionPane.showMessageDialog(null, "Se ha encendido el vehiculo");
         }
         } catch (ApagadoNuevamenteException e) {
              JOptionPane.showMessageDialog(null, e.getMessage());

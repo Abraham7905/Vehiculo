@@ -53,17 +53,22 @@ public class Vehiculo {
      * @param marca
      * @param añoFabricado
      * @param velocidadActual 
+     * @param motor
+     * @param llanta 
      */
-    public Vehiculo (String marca, String añoFabricado, int velocidadActual){
-    this.marca = marca;
-    this.añoFabricado = añoFabricado;
-    this.velocidadActual = velocidadActual;
+
+    public Vehiculo(String marca, String añoFabricado, int velocidadActual, Motor motor, Llanta llanta){
+        this.marca = marca;
+        this.añoFabricado = añoFabricado;
+        this.velocidadActual = velocidadActual;
+        this.motor = motor;
+        this.llanta = llanta;
     }
+
     /**
      *Constructor Vacio
      */
-
-    public Vehiculo(){
+    public Vehiculo() {
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

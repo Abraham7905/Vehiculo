@@ -1,10 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Autonoma.Vehiculo.Main;
 
 
+import autonoma.Vehiculo.models.Llanta;
+import autonoma.Vehiculo.models.Motor;
 import autonoma.Vehiculo.models.Vehiculo;
 import autonoma.Vehiculo.views.VentanaPrincipal;
 
@@ -14,10 +13,10 @@ import autonoma.Vehiculo.views.VentanaPrincipal;
  */
 public class Main {
     public static void main(String[] args) {
-        Vehiculo auto = new Vehiculo();
-        VentanaPrincipal ventana = new VentanaPrincipal();
-         ventana.setVisible(true);
-         ventana.setAuto(auto);
-        
+        Motor motor1 = new Motor("1000 cc", 100, true);
+        Llanta llanta1  = new Llanta("Buenas", 110);
+        Vehiculo auto1 = new Vehiculo("God", "2024", 0, motor1, llanta1);
+        VentanaPrincipal ventana = new VentanaPrincipal(auto1);
+        ventana.setVisible(true);
     }
 }
