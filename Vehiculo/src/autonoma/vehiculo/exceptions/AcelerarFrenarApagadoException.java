@@ -9,10 +9,10 @@ package Autonoma.Vehiculo.Exceptions;
 public class AcelerarFrenarApagadoException extends RuntimeException{
     /**
      *Esta exception es cuando el vehiculo intente frenar o acelerar apagado, dejando recordatorio que el vehiculo no esta encendido
-     * @param mensaje 
+     *
      */
-    public AcelerarFrenarApagadoException(String mensaje) {
-        super(mensaje);
+    public AcelerarFrenarApagadoException() {
+        super("No puedes usar un vehiculo apagado");
     }
     
 }

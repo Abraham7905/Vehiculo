@@ -8,10 +8,9 @@ package Autonoma.Vehiculo.Exceptions;
 public class MotorLimiteException extends RuntimeException{
 /**
  * Si el motor del vehiculo acelera a una velocidad por encima de su limite, este se accidentara soltando un mensaje
- * @param message 
  */
-    public MotorLimiteException(String message) {
-        super(message);
+    public MotorLimiteException() {
+        super("La velocidad excedió el limite permitido por el motor");
     }
     
 }

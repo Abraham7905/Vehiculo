@@ -9,10 +9,9 @@ package Autonoma.Vehiculo.Exceptions;
 public class ApagadoNuevamenteException extends RuntimeException {
     /**
      * Esta exception es cuando el vehiculo este apagado, no apagarse nuevamente
-     * @param message 
      */
-    public ApagadoNuevamenteException(String message) {
-        super(message);
+    public ApagadoNuevamenteException() {
+        super("No puedes apagar nuevamente el vehiculo");
     }
     
     

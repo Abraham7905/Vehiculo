@@ -8,9 +8,9 @@ package Autonoma.Vehiculo.Exceptions;
 public class FrenarSinMovimientoException extends RuntimeException {
     /**
      * Esta exception muestra la nularidad de un frenado mientras el carro no esta en movimiento
-     * @param message 
+     * 
      */
-    public FrenarSinMovimientoException(String message) {
-        super(message);
+    public FrenarSinMovimientoException() {
+        super("No puedes frenar sin Movimiento");
     }
 }

@@ -8,10 +8,9 @@ package Autonoma.Vehiculo.Exceptions;
 public class ApagadoAceleradoException extends RuntimeException{
     /**
      * Si el vehiculo esta acelerando a mas de 60km/h y se apaga repentinamente este se accidentara
-     * @param message 
      */
-    public ApagadoAceleradoException(String message) {
-        super(message);
+    public ApagadoAceleradoException() {
+        super("No puedes apagar mientras aceleras, te has accidentado");
     }
     
 }

@@ -8,11 +8,11 @@ package Autonoma.Vehiculo.Exceptions;
 public class FrenarVelocidadLimiteException extends RuntimeException {
     /**
      * Si el vehiculo frena al limite de su velocidad actual, este soltara un mensaje de que esta patinando
-     * @param message
+     * 
      */
 
-    public FrenarVelocidadLimiteException(String message) {
-        super(message);
+    public FrenarVelocidadLimiteException() {
+        super("No puedes frenar a la velocidad limite, El Vehiculo esta patinando");
     }
     
 }
