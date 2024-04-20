@@ -39,7 +39,7 @@ public class Motor {
     public Motor(String cilindraje, int velocidadMax, boolean estado) {
         this.cilindraje = cilindraje;
         this.velocidadMax = velocidadMax;
-        this.estado = estado;
+        this.estado = false;
     }
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,11 +73,6 @@ public class Motor {
     /**
      * Modifica el estado del vehiculo 
      *
-<<<<<<< HEAD:Vehiculo/src/autonoma/vehiculo/models/Motor.java
-    
-=======
-     * @throws autonoma.Vehiculo.exceptions.EncendidoNuevamenteException
->>>>>>> refs/remotes/origin/main:Vehiculo/src/autonoma/Vehiculo/models/Motor.java
      */
      public void encender() {
          try{
@@ -98,9 +93,9 @@ public class Motor {
     public void apagar(){
         try {
             if(estado == true){
-         this.estado = false;
-         JOptionPane.showMessageDialog(null, "Se ha encendido el vehiculo");
-        }
+            JOptionPane.showMessageDialog(null, "Se ha apagado el vehiculo");
+             }
+             this.estado = false;
         } catch (ApagadoNuevamenteException e) {
              JOptionPane.showMessageDialog(null, e.getMessage());
         }

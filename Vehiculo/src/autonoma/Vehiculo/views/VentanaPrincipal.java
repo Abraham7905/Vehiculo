@@ -1,45 +1,32 @@
 package autonoma.Vehiculo.views;
-import autonoma.Vehiculo.models.Vehiculo;
+import autonoma.Vehiculo.models.*;
+import java.util.ArrayList;
 /**
  *
  * @author Abraham Velasquez 
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-    private  Vehiculo auto;
+    private Vehiculo vehiculo;
     
-    public VentanaPrincipal(Vehiculo auto1) {
-        initComponents();
-        this.auto = auto1;
-    }
-
     public VentanaPrincipal() {
         initComponents();
-    }
-    
-
-    public void setAuto(Vehiculo auto) {
-        this.auto = auto;
+        Motor motor = new Motor("1000cc", 200, false);
+        Llanta llanta = new Llanta ("La chimba del año", 250);
+        this.vehiculo = new Vehiculo("God", "2024", 0, motor, llanta);
     }
 
-    public Vehiculo getAuto() {
-        return auto;
-    }
-     
-    
-    
-    
-    
     public void encender(){
-        auto.encender();
+       vehiculo.encender();
     }
+    
     public void apagar(){
-        auto.apagar();
+      vehiculo.apagar();
     }
     public void frenar(int frenado){
-        auto.frenar(frenado);
+     vehiculo.frenar(frenado);
     }
     public void acelerar(int acelerar){
-        auto.acelerar(acelerar);
+       vehiculo.acelerar(acelerar);
     }
     
     @SuppressWarnings("unchecked")
@@ -47,27 +34,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnGoTaller = new javax.swing.JButton();
         btnStart = new javax.swing.JButton();
         btnCoche = new javax.swing.JButton();
-        btnTaller = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-
-        btnGoTaller.setText("Ir al taller");
-        btnGoTaller.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnGoTallerMouseClicked(evt);
-            }
-        });
-        btnGoTaller.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGoTallerActionPerformed(evt);
-            }
-        });
 
         btnStart.setText("Empezar");
         btnStart.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,57 +67,40 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnTaller.setBackground(new java.awt.Color(0, 153, 153));
-        btnTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/llave-inglesa.png"))); // NOI18N
-        btnTaller.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnTallerMouseClicked(evt);
-            }
-        });
-        btnTaller.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTallerActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 36)); // NOI18N
-        jLabel1.setText("Simulador de Vehículo");
+        jLabel1.setText("Taller");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(btnGoTaller)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnStart)
-                .addGap(97, 97, 97))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(btnTaller)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCoche)
-                .addGap(77, 77, 77))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(88, 88, 88))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(btnCoche))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(btnStart)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24)))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addGap(65, 65, 65)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTaller)
-                    .addComponent(btnCoche))
+                .addGap(50, 50, 50)
+                .addComponent(btnCoche)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGoTaller)
-                    .addComponent(btnStart))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addComponent(btnStart)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,14 +119,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTallerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTallerActionPerformed
-
-    private void btnGoTallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoTallerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGoTallerActionPerformed
-
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         VentanaVehiculo v = new VentanaVehiculo(this, true);
         v.setVisible(true);
@@ -181,17 +129,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.out.println("Conducir");
     }//GEN-LAST:event_btnCocheMouseClicked
 
-    private void btnGoTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGoTallerMouseClicked
-        System.out.println("Configurar Vehiculo");
-    }//GEN-LAST:event_btnGoTallerMouseClicked
-
     private void btnStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStartMouseClicked
         System.out.println("Conducir");
     }//GEN-LAST:event_btnStartMouseClicked
-
-    private void btnTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTallerMouseClicked
-        System.out.println("Configurar Vehiculo");
-    }//GEN-LAST:event_btnTallerMouseClicked
 
     private void btnCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCocheActionPerformed
        VentanaVehiculo v = new VentanaVehiculo(this, true);
@@ -199,12 +139,47 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnCocheActionPerformed
 
+        public static void main(String args[]) {
+            
+            
+            
+            
+            
+            
+            
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            new VentanaPrincipal().setVisible(true);
+        });
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCoche;
-    private javax.swing.JButton btnGoTaller;
     private javax.swing.JButton btnStart;
-    private javax.swing.JButton btnTaller;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

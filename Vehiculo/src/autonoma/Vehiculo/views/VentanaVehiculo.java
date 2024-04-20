@@ -1,8 +1,4 @@
 package autonoma.Vehiculo.views;
-
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
-
 /**
  *
  * @author Abraham Velaquez
@@ -10,7 +6,6 @@ import javax.swing.Timer;
 public class VentanaVehiculo extends javax.swing.JDialog {
     private VentanaPrincipal ven;
     private int velocida = 0;
-    private Timer timer;
     public VentanaVehiculo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -58,6 +53,11 @@ public class VentanaVehiculo extends javax.swing.JDialog {
 
         btnApagar.setBackground(new java.awt.Color(0, 153, 153));
         btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/off.png"))); // NOI18N
+        btnApagar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnApagarMouseClicked(evt);
+            }
+        });
         btnApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApagarActionPerformed(evt);
@@ -66,6 +66,11 @@ public class VentanaVehiculo extends javax.swing.JDialog {
 
         btnEncender.setBackground(new java.awt.Color(0, 153, 153));
         btnEncender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/Vehiculo/images/on.png"))); // NOI18N
+        btnEncender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEncenderMouseClicked(evt);
+            }
+        });
         btnEncender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEncenderActionPerformed(evt);
@@ -185,7 +190,7 @@ public class VentanaVehiculo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEncenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncenderActionPerformed
-       ven.encender();
+      
     }//GEN-LAST:event_btnEncenderActionPerformed
 
     private void btnAceleradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceleradorActionPerformed
@@ -198,47 +203,22 @@ public class VentanaVehiculo extends javax.swing.JDialog {
     }//GEN-LAST:event_btnApagarActionPerformed
 
     private void btnAceleradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceleradorMouseClicked
-         velocida++;
+        velocida++;
        velocidad.setText("" + velocida);
+       ven.acelerar(velocida);
     }//GEN-LAST:event_btnAceleradorMouseClicked
+
+    private void btnEncenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEncenderMouseClicked
+        ven.encender();
+      
+         
+    }//GEN-LAST:event_btnEncenderMouseClicked
+
+    private void btnApagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApagarMouseClicked
+        ven.apagar();
+    }//GEN-LAST:event_btnApagarMouseClicked
        
                 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaVehiculo dialog = new VentanaVehiculo(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcelerador;
